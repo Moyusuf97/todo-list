@@ -8,7 +8,7 @@ import {ITask} from './Interfaces'
 
 const App: FC = () => {
 
-  const [task, setTask] = useState<string>("")
+  const [task, setTask] = useState("")
   const [todoList, setTodoList] = useState<ITask[]>([])
 
 
@@ -17,7 +17,7 @@ const App: FC = () => {
   }
 
   const addTask = (): void => {
-    const newTask = { taskName: task}
+    const newTask = { taskName: task, id:todoList.length+1, completed: false}
     setTodoList([...todoList, newTask])
     setTask("")
     
@@ -25,9 +25,9 @@ const App: FC = () => {
 
   }
   
-  const completeTask = (taskNameToDelete: string):void => {
+  const completeTask = (taskidtodelete: number):void => {
     setTodoList(todoList.filter((task) => {
-      return task.taskName !=taskNameToDelete
+      return task.id !=taskidtodelete
     }))
 
 

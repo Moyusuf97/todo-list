@@ -5,7 +5,7 @@ import { faTasks, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   task: ITask;
-  completeTask(taskNameToDelete: string): void;
+  completeTask(taskNameToDelete: number): void;
 }
 
 const TodoTask = ({ task, completeTask }: Props) => {
@@ -25,7 +25,7 @@ const TodoTask = ({ task, completeTask }: Props) => {
 
       <button
         onClick={() => {
-          completeTask(task.taskName);
+          completeTask(task.id);
         }}
       >
         <FontAwesomeIcon icon={faTrash} />
